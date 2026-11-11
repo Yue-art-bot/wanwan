@@ -192,5 +192,33 @@
   <script src="js/werewolf-game.js?v=1.0.3"></script>
   <script src="js/avg.js?v=1.1.0"></script>
   <script src="js/terminal.js?v=1.1.5"></script>
+
+  <!-- 移除托管平台注入的推广浮层（Netlify HUD 的 nl-badge-frame） -->
+  <script>
+  (function () {
+    function dropHud() {
+      var f = document.getElementById('nl-badge-frame');
+      if (f && f.parentNode) f.parentNode.removeChild(f)
+    }
+    var mo = new MutationObserver(function (muts) {
+      for (var i = 0; i < muts.length; i++) {
+        var added = muts[i].addedNodes
+        for (var j = 0; j < added.length; j++) {
+          var n = added[j]
+          if (n && n.nodeType === 1 && n.tagName === 'IFRAME' && n.id === 'nl-badge-frame') {
+            n.parentNode && n.parentNode.removeChild(n)
+          }
+        }
+      }
+    })
+    if (document.documentElement) {
+      mo.observe(document.documentElement, { childList: true, subtree: true })
+    }
+    document.addEventListener('DOMContentLoaded', dropHud)
+    window.addEventListener('load', dropHud)
+    var timer = setInterval(dropHud, 600)
+    setTimeout(function () { clearInterval(timer) }, 15000)
+  })()
+  </script>
 </body>
 </html>
