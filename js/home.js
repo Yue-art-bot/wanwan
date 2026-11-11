@@ -191,9 +191,9 @@ var DESKTOP_WIDGET_TEMPLATES = [
     rows: 2,
     className: 'three-pics-widget',
     data: {
-      pic1: 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/XNhs/1065X1065/BG_01.JPG',
-      pic2: 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/GIsD/1077X1076/BG_04.JPG',
-      pic3: 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/m2yV/1077X1076/BG_03.JPG',
+      pic1: 'img/external/bg-01.jpg',
+      pic2: 'img/external/bg-04.jpg',
+      pic3: 'img/external/bg-03.jpg',
       label: '3Pics',
       tag: '·ㅈ·'
     }
@@ -206,8 +206,8 @@ var DESKTOP_WIDGET_TEMPLATES = [
     rows: 2,
     className: 'file-type-widget',
     data: {
-      pic1: 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/XNhs/1065X1065/BG_01.JPG',
-      pic2: 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/GIsD/1077X1076/BG_04.JPG',
+      pic1: 'img/external/bg-01.jpg',
+      pic2: 'img/external/bg-04.jpg',
       icon: '🍨',
       temp: '23°C',
       type1: 'Photo',
@@ -227,9 +227,9 @@ var DESKTOP_WIDGET_TEMPLATES = [
       avatar: 'img/wanwan.png',
       title: 'Moonlight ✧˖°⋆✩',
       temp: '28°',
-      pic1: 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/XNhs/1065X1065/BG_01.JPG',
+      pic1: 'img/external/bg-01.jpg',
       caption1: 'you have the sweetest soul I have ever seen.',
-      pic2: 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/GIsD/1077X1076/BG_04.JPG',
+      pic2: 'img/external/bg-04.jpg',
       caption2: 'wish upon a star ⋆'
     }
   },
@@ -249,7 +249,7 @@ var DESKTOP_WIDGET_TEMPLATES = [
     cols: 2,
     rows: 2,
     className: 'dynamic-caption-widget',
-    data: { title: '☆ ·u and me.★', subtitle: '於你而言我是一個星嗎', bgImage: 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/Qact/1077X1076/BG_05.JPG' }
+    data: { title: '☆ ·u and me.★', subtitle: '於你而言我是一個星嗎', bgImage: 'img/external/bg-05.jpg' }
   },
   {
     id: 'thread-post',
@@ -263,7 +263,7 @@ var DESKTOP_WIDGET_TEMPLATES = [
       name: 'Moonlight',
       time: '56m',
       text: '浅尝辄止 痛定思痛\nAm I not important in your heart...',
-      pic: 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/GIsD/1077X1076/BG_04.JPG',
+      pic: 'img/external/bg-04.jpg',
       likes: '99.0k'
     }
   },
@@ -279,10 +279,10 @@ var DESKTOP_WIDGET_TEMPLATES = [
       weather: '晴 26°C',
       label1: '#No.1',
       caption1: '思绪回到那天，你说永远不会分开',
-      pic1: 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260725/KjoH/1176X1173/PHB1.JPG',
+      pic1: 'img/external/phb-1.jpg',
       label2: '#No.2',
       caption2: '等你读懂我的隐喻',
-      pic2: 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260725/zKzo/1176X1167/PHB2.JPG'
+      pic2: 'img/external/phb-2.jpg'
     }
   }
 ]
@@ -355,9 +355,9 @@ function normalizeDesktopWidgetDefinition(widget) {
     widget.cols = 4
     widget.rows = 2
     widget.data = Object.assign({}, widget.data || {})
-    if (!widget.data.pic1) widget.data.pic1 = 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/XNhs/1065X1065/BG_01.JPG'
-    if (!widget.data.pic2) widget.data.pic2 = 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/GIsD/1077X1076/BG_04.JPG'
-    if (!widget.data.pic3) widget.data.pic3 = 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/m2yV/1077X1076/BG_03.JPG'
+    if (!widget.data.pic1) widget.data.pic1 = 'img/external/bg-01.jpg'
+    if (!widget.data.pic2) widget.data.pic2 = 'img/external/bg-04.jpg'
+    if (!widget.data.pic3) widget.data.pic3 = 'img/external/bg-03.jpg'
     if (!widget.data.label) widget.data.label = '3Pics'
     if (!widget.data.tag) widget.data.tag = '·ㅈ·'
   }
@@ -365,8 +365,8 @@ function normalizeDesktopWidgetDefinition(widget) {
     widget.cols = 4
     widget.rows = 2
     widget.data = Object.assign({}, widget.data || {})
-    if (!widget.data.pic1) widget.data.pic1 = 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/XNhs/1065X1065/BG_01.JPG'
-    if (!widget.data.pic2) widget.data.pic2 = 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/GIsD/1077X1076/BG_04.JPG'
+    if (!widget.data.pic1) widget.data.pic1 = 'img/external/bg-01.jpg'
+    if (!widget.data.pic2) widget.data.pic2 = 'img/external/bg-04.jpg'
     if (!widget.data.icon) widget.data.icon = '🍨'
     if (!widget.data.temp) widget.data.temp = '23°C'
     if (!widget.data.type1) widget.data.type1 = 'Photo'
@@ -386,8 +386,8 @@ function normalizeDesktopWidgetDefinition(widget) {
     if (!widget.data.avatar) widget.data.avatar = 'img/wanwan.png'
     if (!widget.data.title) widget.data.title = 'Moonlight ✧˖°⋆✩'
     if (!widget.data.temp) widget.data.temp = '28°'
-    if (!widget.data.pic1) widget.data.pic1 = 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/XNhs/1065X1065/BG_01.JPG'
-    if (!widget.data.pic2) widget.data.pic2 = 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/GIsD/1077X1076/BG_04.JPG'
+    if (!widget.data.pic1) widget.data.pic1 = 'img/external/bg-01.jpg'
+    if (!widget.data.pic2) widget.data.pic2 = 'img/external/bg-04.jpg'
     if (widget.data.caption1 === undefined) widget.data.caption1 = 'you have the sweetest soul I have ever seen.'
     if (widget.data.caption2 === undefined) widget.data.caption2 = 'wish upon a star ⋆'
   }
@@ -399,7 +399,7 @@ function normalizeDesktopWidgetDefinition(widget) {
     if (!widget.data.name) widget.data.name = 'Moonlight'
     if (!widget.data.time) widget.data.time = '56m'
     if (widget.data.text === undefined) widget.data.text = '浅尝辄止 痛定思痛\nAm I not important in your heart...'
-    if (!widget.data.pic) widget.data.pic = 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/GIsD/1077X1076/BG_04.JPG'
+    if (!widget.data.pic) widget.data.pic = 'img/external/bg-04.jpg'
     if (widget.data.likes === undefined) widget.data.likes = '99.0k'
   }
   if (widget.templateId === 'photo-board') {
@@ -412,8 +412,8 @@ function normalizeDesktopWidgetDefinition(widget) {
     if (!widget.data.label2) widget.data.label2 = '#No.2'
     if (widget.data.caption1 === undefined) widget.data.caption1 = '思绪回到那天，你说永远不会分开'
     if (widget.data.caption2 === undefined) widget.data.caption2 = '等你读懂我的隐喻'
-    if (!widget.data.pic1) widget.data.pic1 = 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260725/KjoH/1176X1173/PHB1.JPG'
-    if (!widget.data.pic2) widget.data.pic2 = 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260725/zKzo/1176X1167/PHB2.JPG'
+    if (!widget.data.pic1) widget.data.pic1 = 'img/external/phb-1.jpg'
+    if (!widget.data.pic2) widget.data.pic2 = 'img/external/phb-2.jpg'
   }
   return widget
 }
@@ -1765,9 +1765,9 @@ function openThreePicsEditor(widgetId) {
   var widget = _desktopWidgets.find(function(item) { return item.id === widgetId })
   if (!widget || widget.templateId !== 'three-pics') return
   var data = Object.assign({
-    pic1: 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/XNhs/1065X1065/BG_01.JPG',
-    pic2: 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/GIsD/1077X1076/BG_04.JPG',
-    pic3: 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/m2yV/1077X1076/BG_03.JPG',
+    pic1: 'img/external/bg-01.jpg',
+    pic2: 'img/external/bg-04.jpg',
+    pic3: 'img/external/bg-03.jpg',
     label: '3Pics',
     tag: '·ㅈ·'
   }, widget.data || {})
@@ -1835,8 +1835,8 @@ function openFileTypeEditor(widgetId) {
   var widget = _desktopWidgets.find(function(item) { return item.id === widgetId })
   if (!widget || widget.templateId !== 'file-type') return
   var data = Object.assign({
-    pic1: 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/XNhs/1065X1065/BG_01.JPG',
-    pic2: 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/GIsD/1077X1076/BG_04.JPG',
+    pic1: 'img/external/bg-01.jpg',
+    pic2: 'img/external/bg-04.jpg',
     icon: '🍨',
     temp: '23°C',
     type1: 'Photo',
@@ -1918,9 +1918,9 @@ function openMoodPostEditor(widgetId) {
     avatar: 'img/wanwan.png',
     title: 'Moonlight ✧˖°⋆✩',
     temp: '28°',
-    pic1: 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/XNhs/1065X1065/BG_01.JPG',
+    pic1: 'img/external/bg-01.jpg',
     caption1: 'you have the sweetest soul I have ever seen.',
-    pic2: 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/GIsD/1077X1076/BG_04.JPG',
+    pic2: 'img/external/bg-04.jpg',
     caption2: 'wish upon a star ⋆'
   }, widget.data || {})
   var overlay = document.createElement('div')
@@ -2007,7 +2007,7 @@ function openThreadPostEditor(widgetId) {
     name: 'Moonlight',
     time: '56m',
     text: '浅尝辄止 痛定思痛\nAm I not important in your heart...',
-    pic: 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/GIsD/1077X1076/BG_04.JPG',
+    pic: 'img/external/bg-04.jpg',
     likes: '99.0k'
   }, widget.data || {})
   var overlay = document.createElement('div')
@@ -2089,10 +2089,10 @@ function openPhotoBoardEditor(widgetId) {
     weather: '晴 26°C',
     label1: '#No.1',
     caption1: '思绪回到那天，你说永远不会分开',
-    pic1: 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260725/KjoH/1176X1173/PHB1.JPG',
+    pic1: 'img/external/phb-1.jpg',
     label2: '#No.2',
     caption2: '等你读懂我的隐喻',
-    pic2: 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260725/zKzo/1176X1167/PHB2.JPG'
+    pic2: 'img/external/phb-2.jpg'
   }, widget.data || {})
   var overlay = document.createElement('div')
   overlay.className = 'sheet-overlay'
@@ -2356,9 +2356,9 @@ function buildDesktopWidgetInner(widget) {
       '</div>'
   }
   if (widget.templateId === 'three-pics') {
-    var tpPic1 = data.pic1 || 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/XNhs/1065X1065/BG_01.JPG'
-    var tpPic2 = data.pic2 || 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/GIsD/1077X1076/BG_04.JPG'
-    var tpPic3 = data.pic3 || 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/m2yV/1077X1076/BG_03.JPG'
+    var tpPic1 = data.pic1 || 'img/external/bg-01.jpg'
+    var tpPic2 = data.pic2 || 'img/external/bg-04.jpg'
+    var tpPic3 = data.pic3 || 'img/external/bg-03.jpg'
     return '<div class="tp-photos">' +
         '<div class="tp-photo"><img src="' + escapeMainHtml(tpPic1) + '" alt=""></div>' +
         '<div class="tp-photo"><img src="' + escapeMainHtml(tpPic2) + '" alt=""></div>' +
@@ -2370,8 +2370,8 @@ function buildDesktopWidgetInner(widget) {
       '</div>'
   }
   if (widget.templateId === 'file-type') {
-    var ftPic1 = data.pic1 || 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/XNhs/1065X1065/BG_01.JPG'
-    var ftPic2 = data.pic2 || 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/GIsD/1077X1076/BG_04.JPG'
+    var ftPic1 = data.pic1 || 'img/external/bg-01.jpg'
+    var ftPic2 = data.pic2 || 'img/external/bg-04.jpg'
     var ftNow = new Date()
     var ftDate = String(ftNow.getFullYear()).slice(-2) + '-' + String(ftNow.getMonth() + 1).padStart(2, '0') + '-' + String(ftNow.getDate()).padStart(2, '0')
     var ftItem = function(pic, type, caption) {
@@ -2397,8 +2397,8 @@ function buildDesktopWidgetInner(widget) {
     var mpAvatar = data.avatar || 'img/wanwan.png'
     var mpTitle = data.title || 'Moonlight ✧˖°⋆✩'
     var mpTemp = data.temp || '28°'
-    var mpPic1 = data.pic1 || 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/XNhs/1065X1065/BG_01.JPG'
-    var mpPic2 = data.pic2 || 'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/GIsD/1077X1076/BG_04.JPG'
+    var mpPic1 = data.pic1 || 'img/external/bg-01.jpg'
+    var mpPic2 = data.pic2 || 'img/external/bg-04.jpg'
     var mpCaption1 = data.caption1 || ''
     var mpCaption2 = data.caption2 || ''
     var mpPhoto = function(pic, caption) {
@@ -2418,7 +2418,7 @@ function buildDesktopWidgetInner(widget) {
       '</div>'
   }
   if (widget.templateId === 'dynamic-caption') {
-    var dcBgImage = data.bgImage ||'https://img2.tofaka.com/autoupload/WyM1lZ85VwHzLwMUY9JmtdiO_OyvX7mIgxFBfDMDErs/20260619/Qact/1077X1076/BG_05.JPG'
+    var dcBgImage = data.bgImage ||'img/external/bg-05.jpg'
     var dcTitle = data.title || '☆ ·u and me.★'
     var dcSubtitle = data.subtitle || '於你而言我是一個星嗎'
     return '<div class="dc-cover"' + (dcBgImage ? ' style="--dc-bg-image:url(' + escapeMainHtml(dcBgImage) + ')"' : '') + '></div>' +

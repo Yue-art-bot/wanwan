@@ -12,19 +12,20 @@
   <link rel="manifest" id="app-manifest" href="manifest.json">
   <title>弯弯</title>
 
-  <!-- Font Awesome 7.2.0 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+  <!-- Font Awesome 7.2.0（已本地化） -->
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
 
-  <!-- Flaticon UIcons -->
-  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.4.2/uicons-brands/css/uicons-brands.css">
-  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.4.2/uicons-thin-rounded/css/uicons-thin-rounded.css">
-  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.4.2/uicons-thin-straight/css/uicons-thin-straight.css">
-  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.4.2/uicons-regular-rounded/css/uicons-regular-rounded.css">
+  <!-- Flaticon UIcons（已本地化） -->
+  <link rel="stylesheet" href="vendor/uicons/uicons-brands/css/uicons-brands.css">
+  <link rel="stylesheet" href="vendor/uicons/uicons-thin-rounded/css/uicons-thin-rounded.css">
+  <link rel="stylesheet" href="vendor/uicons/uicons-thin-straight/css/uicons-thin-straight.css">
+  <link rel="stylesheet" href="vendor/uicons/uicons-regular-rounded/css/uicons-regular-rounded.css">
 
-  <!-- Dexie 多CDN备用加载 -->
+  <!-- Dexie：本地优先，CDN 作为兜底 -->
   <script>
   (function() {
     var cdns = [
+      'vendor/dexie.min.js',
       'https://cdn.jsdelivr.net/npm/dexie@4.4.3/dist/dexie.min.js',
       'https://unpkg.com/dexie@4.4.3/dist/dexie.min.js',
       'https://cdnjs.cloudflare.com/ajax/libs/dexie/4.4.3/dexie.min.js'
@@ -42,8 +43,8 @@
   })()
   </script>
 
-  <!-- JSZip -->
-  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <!-- JSZip（已本地化，CDN 兜底） -->
+  <script src="vendor/jszip.min.js" onerror="(function(){var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js';document.head.appendChild(s)})()"></script>
 
   <!-- CSS 引用顺序 -->
   <link rel="stylesheet" href="css/base.css?v=1.0.14">
@@ -77,6 +78,51 @@
   <link rel="stylesheet" href="css/terminal.css?v=1.1.1">
 </head>
 <body>
+  <!-- 访问口令校验（站点公开部署时的轻量门槛） -->
+  <script>
+  (function () {
+    var WANWAN_ACCESS_PIN = 'wanwan';   // 改成你自己的口令；设为 '' 即关闭访问口令
+    var STORE_KEY = 'wanwan-access-pass';
+    if (!WANWAN_ACCESS_PIN) return;
+    try { if (localStorage.getItem(STORE_KEY) === WANWAN_ACCESS_PIN) return; } catch (e) {}
+
+    function showGate() {
+      var gate = document.createElement('div');
+      gate.id = 'ww-access-gate';
+      gate.style.cssText = 'position:fixed;inset:0;z-index:99999;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;padding:24px;';
+      gate.innerHTML =
+        '<div style="font-size:24px;font-weight:600;color:#111;letter-spacing:2px;">弯弯</div>' +
+        '<div style="font-size:13px;color:#999;margin:10px 0 22px;">个人部署实例，请输入访问口令</div>' +
+        '<input id="ww-pin-input" type="password" autocomplete="off" placeholder="访问口令" ' +
+        'style="width:220px;padding:12px 14px;border:1px solid #e5e5e5;border-radius:12px;font-size:16px;text-align:center;outline:none;box-sizing:border-box;">' +
+        '<button id="ww-pin-btn" style="width:220px;margin-top:12px;padding:12px 14px;border:none;border-radius:12px;background:#111;color:#fff;font-size:15px;box-sizing:border-box;">进入</button>' +
+        '<div id="ww-pin-err" style="height:18px;margin-top:10px;font-size:12px;color:#d33;"></div>';
+      document.body.appendChild(gate);
+
+      var input = gate.querySelector('#ww-pin-input');
+      var btn = gate.querySelector('#ww-pin-btn');
+      var err = gate.querySelector('#ww-pin-err');
+
+      function submit() {
+        if (input.value.trim() === WANWAN_ACCESS_PIN) {
+          try { localStorage.setItem(STORE_KEY, WANWAN_ACCESS_PIN); } catch (e) {}
+          gate.remove();
+        } else {
+          err.textContent = '口令不正确';
+          input.value = '';
+          input.focus();
+        }
+      }
+      btn.addEventListener('click', submit);
+      input.addEventListener('keydown', function (e) { if (e.key === 'Enter') submit(); });
+      setTimeout(function () { try { input.focus(); } catch (e) {} }, 300);
+    }
+
+    if (document.body) showGate();
+    else document.addEventListener('DOMContentLoaded', showGate);
+  })();
+  </script>
+
   <!-- 开屏页 -->
   <div id="loading">
     <div class="splash-bg">
